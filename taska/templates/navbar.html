@@ -1,0 +1,33 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Short URL's</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Main page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/history/">History</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ul class="nav justify-content-end">
+  {% if user.is_authenticated %}
+    <li class="navbar-nav">
+      <a class="nav-link" href="{% url "logout" %}">LogOut</a>
+    </li>
+  {% else %}
+    <li class="navbar-nav">
+      <p class="text">
+        <a class="text-reset" href="{% url "login" %}">LogIn</a>/<a href="{% url "register" %}" class="text-reset">Registration</a>
+      </p>
+    </li>
+  {% endif %}
+  </ul>
+</nav>

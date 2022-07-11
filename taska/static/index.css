@@ -1,0 +1,9 @@
+body {
+    background-color: #cecece;
+}
+
+#ul_content_topmenu a{
+    float:left;
+    font-size: 18px;
+    width:150px;
+}
