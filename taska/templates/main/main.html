@@ -1,22 +1,31 @@
 {% extends "base.html" %}
+{% load i18n static crispy_forms_filters%}
+{% load static %}
 
 {% block title %}HOME PAGE{% endblock %}
 
 {% block content %}
-    <div class="container notes">
-    <div class="row">
-      {% for url in all_urls %}
-        <div class="col-4 note-item">
-          <div class="post">
-            <div class="post-body">
-              <h5 class="post-title">URL</h5>
-              <p class="post-text">{{ url.url }}</p>
-              <h5 class="post-title">Short URL</h5>
-              <p class="post-text">http://127.0.0.1:8000/{{ url.short }}</p>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
+        <h1>All URL's</h1>
+        <table class="table">
+        <thead>
+        <tr>
+            <th>URL</th>
+            <th>Short URL</th>
+            <th>Date</th>
+            <th>User</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in all_urls %}
+                <tr>
+                    <td>{{ item.url }}</td>
+                    <td>http://127.0.0.1:8000/{{ item.short }}</td>
+                    <td>{{ item.created_at }}</td>
+                    <td>{{ item.user }}</td>
+                </tr>
+        {% endfor %}
+          </tbody>
+    </table>
 {% endblock %}
+
+

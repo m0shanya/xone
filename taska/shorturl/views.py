@@ -37,10 +37,6 @@ def short_url(request):
     return render(request, 'main/form.html', {'form': form})
 
 
-# def url_redirect(request, slug):
-#     return redirect(Urls.objects.get(short=slug).url)
-
-
 def history_list(request):
     if request.user.is_authenticated:
         url = Urls.objects.filter(user=request.user)

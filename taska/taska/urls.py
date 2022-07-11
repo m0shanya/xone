@@ -26,6 +26,5 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('url_shorter/', short_url, name='url_shorter'),
     path('', home, name='home'),
-    # path('slug/<str:slug>/', url_redirect, name='url_redirect'),
     path('history/', history_list, name='history')
 ]
