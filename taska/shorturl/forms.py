@@ -1,8 +1,15 @@
 from django import forms
 
+from shorturl.models import Urls
 
-class UrlForm(forms.Form):
-    url = forms.CharField(label="URL")
+
+class AddUrlForm(forms.ModelForm):
+    class Meta:
+        model = Urls
+        fields = ('url',)
+
+    def __str__(self):
+        return self.url
 
 
 class LoginForm(forms.Form):

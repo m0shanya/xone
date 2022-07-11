@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from shorturl.authentication import user_login, logout_view, register
-from shorturl.views import short_url, home, url_redirect
+from shorturl.views import short_url, home, history_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('url_shorter/', short_url, name='url_shorter'),
     path('', home, name='home'),
-    path('slug/<str:slug>/', url_redirect, name='url_redirect')
+    # path('slug/<str:slug>/', url_redirect, name='url_redirect'),
+    path('history/', history_list, name='history')
 ]

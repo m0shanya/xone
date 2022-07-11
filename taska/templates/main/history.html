@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n static crispy_forms_filters%}
+{% load static %}
+
+{% block title %}
+    History
+{% endblock %}
+{% block content %}
+    <h1>History</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>URL</th>
+            <th>Short URL</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in url %}
+                <tr>
+                    <td>{{ item.url }}</td>
+                    <td>{{ item.short }}</td>
+                    <td>{{ item.created_at }}</td>
+                </tr>
+        {% endfor %}
+          </tbody>
+    </table>
+{% endblock %}

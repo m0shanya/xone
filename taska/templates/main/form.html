@@ -1,7 +1,12 @@
 {% extends "base.html" %}
-<form action="{% url "url_shorter" %}" method="post">
-	{% csrf_token %}
-    <label for="url">Enter url </label>
-	<input id="url" type="text" name="url" >
-    <input type="submit" value="url">
-</form>
+
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <h1>URL</h1>
+    <form method="post" class="post-form">
+	  {% csrf_token %}
+      {{ form|crispy }}
+        <button type="submit" class="save btn btn-primary">Cut</button>
+    </form>
+{% endblock %}
