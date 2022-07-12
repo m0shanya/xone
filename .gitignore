@@ -13,3 +13,5 @@ venv/
 
 # Media files
 media/
+
+xone/taska/db.sqlite3
