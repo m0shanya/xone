@@ -26,7 +26,6 @@ def short_url(request):
                     new_url = Urls.objects.create(url=form.cleaned_data['url'],
                                                   short=''.join(random.choice(char) for x in range(9)),
                                                   user=request.user)
-                    new_url.save()
             return redirect('/')
         else:
             form = AddUrlForm()
