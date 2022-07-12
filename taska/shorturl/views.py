@@ -22,10 +22,11 @@ def short_url(request):
             form = AddUrlForm(request.POST)
             if form.is_valid():
                 logger.info(form.cleaned_data)
-                new_url = Urls.objects.create(url=form.cleaned_data['url'],
-                                              short=''.join(random.choice(char) for x in range(9)),
-                                              user=request.user)
-                new_url.save()
+                if not Urls.objects.filter(url=form.cleaned_data['url'], user=request.user).exists():
+                    new_url = Urls.objects.create(url=form.cleaned_data['url'],
+                                                  short=''.join(random.choice(char) for x in range(9)),
+                                                  user=request.user)
+                    new_url.save()
             return redirect('/')
         else:
             form = AddUrlForm()
