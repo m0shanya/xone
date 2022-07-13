@@ -3,3 +3,5 @@ psycopg2-binary==2.9.3
 Pillow==9.2.0
 crispy-bootstrap5==0.6
 requests==2.27.1
+prettytable==3.3.0
+mysql-connector-python==8.0.29
